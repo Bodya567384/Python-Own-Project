@@ -31,58 +31,34 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav pull-right">
           <li class="active"><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b
-                class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="sidebar-right.html">Right Sidebar</a></li>
-              <li><a href="#">Dummy Link1</a></li>
-              <li><a href="#">Dummy Link2</a></li>
-              <li><a href="#">Dummy Link3</a></li>
-            </ul>
-          </li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/about">Retro</a></li>
+          {% if session %}
+          <li><a href="/about">Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+</a></li>
+          <li><a href="/about">Add Retro</a></li>
+          {% else %}
+          <li><a href="/login">Login <i class="fa fa-sign-in" aria-hidden="true"></i>
+</a></li>
+          {% endif %}
+<!--          <li><a href="/about">About</a></li>-->
+<!--          <li><a href="/services">Services</a></li>-->
+<!--          <li><a href="/portfolio">Portfolio</a></li>-->
+<!--          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b-->
+<!--                class="caret"></b></a>-->
+<!--            <ul class="dropdown-menu">-->
+<!--              <li><a href="sidebar-right.html">Right Sidebar</a></li>-->
+<!--              <li><a href="#">Dummy Link1</a></li>-->
+<!--              <li><a href="#">Dummy Link2</a></li>-->
+<!--              <li><a href="#">Dummy Link3</a></li>-->
+<!--            </ul>-->
+<!--          </li>-->
+<!--          <li><a href="/contact">Contact</a></li>-->
         </ul>
       </div>
       <!--/.nav-collapse -->
     </div>
   </div>
   <!-- /.navbar -->
-
-  <!-- Header -->
-  <header id="head">
-    <div class="container">
-      <div class="banner-content">
-        <div id="da-slider" class="da-slider">
-          <div class="da-slide">
-            <h2>MANAGEMENT</h2>
-            <p>Amazing free responsive website for free</p>
-            <div class="da-img"></div>
-          </div>
-          <div class="da-slide">
-            <h2>PLANNING</h2>
-            <p>Bootstrap mobile first front-end framework.</p>
-            <div class="da-img"></div>
-          </div>
-          <div class="da-slide">
-            <h2>MARKETING</h2>
-            <p>HTML5/CSS3 used for structuring and presenting.</p>
-            <div class="da-img"></div>
-          </div>
-          <div class="da-slide">
-            <h2>REPORTS</h2>
-            <p>jQuery: Write Less.. Do More..</p>
-            <div class="da-img"></div>
-          </div>
-          <nav class="da-arrows"> <span class="da-arrows-prev"></span> <span class="da-arrows-next"></span> </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- /Header -->
-
   <main>
       {% block main %} {% endblock %}
   </main>
