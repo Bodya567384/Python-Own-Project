@@ -16,7 +16,7 @@
 				<li><a href="/">Home</a></li>
 				<li><a href="/about">About</a></li>
 				<li><a href="/login">Login</a></li>
-				<li class="active"><a href="/services">Services</a></li>
+				<li class="active"><a href="/retro">Retro</a></li>
 				<li><a href="/portfolio">Portfolio</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
@@ -38,9 +38,10 @@
 <header id="head" class="secondary"></header>
 <div class="container serviceslist">
 	<div class="row">
+<!--		{% for item in list_retro %}-->
 		<div class="col-md-12">
 			<header class="page-header">
-				<h1 class="page-title">Services</h1>
+				<h1 class="page-title">Retro</h1>
 			</header>
 		</div>
 	</div>
@@ -87,6 +88,7 @@
 <div class="container">
 	<div class="row">
 		<!-- Article content -->
+<!--		{% for item in list_retro %}-->
 		<article class="col-sm-12 maincontent">
 			<h3>Responsive Website</h3>
 			<p><img src="assets/images/about.jpg" alt="" class="img-rounded pull-right" width="300"> Lorem Ipsum is
@@ -115,10 +117,22 @@
 				Ipsum.</p>
 		</article>
 	</div>
+<!--	<div class="row">-->
+<!--		{% if list_retro.has_prev %}-->
+<!--		<a href="{{ url_for('retro', page=list_retro.prev_num)}}">Prev</a>-->
+<!--		{% endif %}-->
+<!--		- -->
+<!--		{% for page_num in list_news.iter_pages() %}-->
+<!--		<a href="{{ url_for('retro', page=list_retro.page_num)}}">{{page_num}}</a>-->
+<!--		{% endfor %}-->
+<!--		- -->
+<!--		{% if list_retro.next_num %}-->
+<!--		<a href="{{ url_for('retro', page=list_retro.next_num)}}">Prev</a>-->
+<!--		{% endif %}-->
+<!--	</div>-->
 
 </div>
 <footer id="footer" class="top-space">
-
 	<div class="footer1">
 		<div class="container">
 			<div class="row">
@@ -163,21 +177,6 @@
 
 	<div class="footer2">
 		<div class="container">
-			<div class="row">
-
-				<div class="col-md-6 panel">
-					<div class="panel-body">
-						<p class="simplenav">
-							<a href="/">Home</a>
-							<a href="/about">About</a>
-							<a href="/login">Login</a>
-							<a href="/services">Services</a>
-							<a href="/portfolio">Portfolio</a>
-							<a href="/contact">Contact</a>
-						</p>
-					</div>
-				</div>
-
 				<div class="col-md-6 panel">
 					<div class="panel-body">
 						<p class="text-right">

@@ -4,6 +4,7 @@ from werkzeug.security import check_password_hash
 from flask import Flask, request, session, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
 import os
+from datetime import datetime
 
 SESSION_USER_ID = 'user_id'
 
@@ -15,6 +16,7 @@ app.config['SECRET KEY'] = 'wO68AEm3cSknDmKt2ofLvx2yJwN_vf9wxzhU3geUeZs'
 db = SQLAlchemy(app)
 
 class User(db.Model):
+    __tablename__ = 'User'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(150), nullable=False)
@@ -26,6 +28,17 @@ class User(db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+
+class Retro(db.Model):
+    __tablename__ = 'Retro'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    image = db.Column(db.String(150), nullable=False)
+    text = db.Column(db.Text(), nullable=False)
+    created_on = db.Column(db.Date(), default=datetime.utcnow())
+    deleted = db.Column(db.Boolean, default=0)
+
 
 
 with app.app_context():
@@ -40,9 +53,16 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/services')
-def services():
-    return render_template('services.html')
+@app.route('/retro')
+def retro():
+    page = request.args.get('page', 1, type=int)
+    list_retro = Retro.query.paginate(page=page, per_page=6)
+
+    for item in list_retro:
+        if len(item.text) > 200:
+            item.text = item.text[:200] + ' ...'
+
+    return render_template('retro.html', list_retro=list_retro)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
